@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trophy, Award, Flame, BookOpen, Calendar, Shield, RefreshCw } from 'lucide-react';
+import { Trophy, Award, Flame, BookOpen, Shield, RefreshCw } from 'lucide-react';
 
 export default function Profile() {
   const stats = [

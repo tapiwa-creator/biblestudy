@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Flame, BookOpen, Trophy, Award, ArrowRight, Quote, Lock, Clock, Bookmark, ChevronRight } from 'lucide-react';
+import { Sparkles, Flame, BookOpen, Trophy, Award, ArrowRight, Quote, Lock, Clock, Bookmark } from 'lucide-react';
 
 export default function Home() {
   const stats = [

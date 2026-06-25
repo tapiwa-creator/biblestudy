@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, Search, Clock, Bookmark, ChevronRight } from 'lucide-react';
+import { Search, Clock, Bookmark, ChevronRight } from 'lucide-react';
 
 export default function ExploreLessons() {
   const [selectedFilter, setSelectedFilter] = useState('All');

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Globe, Heart, Mail } from 'lucide-react';
+import { BookOpen } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -25,22 +25,6 @@ export default function Footer() {
           {/* Right Side: Credits Link & Socials */}
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
             
-            {/* Socials & Made With Love */}
-            <div className="flex items-center gap-4 text-slate-400 dark:text-slate-500">
-              <span className="text-xs inline-flex items-center gap-1.5 font-medium">
-               
-              </span>
-              <div className="h-4 w-px bg-slate-200 dark:bg-slate-800" />
-              <a href="#" className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-                
-              </a>
-              <a href="#" className="hover:text-slate-800 dark:hover:text-slate-200 transition-colors p-1 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-                
-              </a>
-            </div>
-
-            <div className="hidden md:block h-4 w-px bg-slate-200 dark:bg-slate-800" />
-
             {/* Developed By Link (Far opposite corner) */}
             <div className="text-sm font-medium text-slate-500 dark:text-slate-400">
               Developed by{' '}
