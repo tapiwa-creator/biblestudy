@@ -74,7 +74,7 @@ export default function ExploreLessons() {
           placeholder="Search lessons, books, or topics..." 
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-250 placeholder-slate-400 dark:placeholder-slate-500 rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-slate-400 dark:focus:border-slate-700 text-sm transition shadow-sm"
+          className="w-full bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 rounded-2xl py-3.5 pl-12 pr-4 focus:outline-none focus:border-slate-400 dark:focus:border-slate-700 text-sm transition shadow-sm"
         />
       </div>
 
@@ -123,10 +123,10 @@ export default function ExploreLessons() {
               </button>
             </div>
 
-            {/* Card Meta Content Details Area */}
+             {/* Card Meta Content Details Area */}
             <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
               <div className="space-y-2">
-                <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 dark:text-slate-550">
+                <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 dark:text-slate-500">
                   <span className="bg-slate-100 dark:bg-[#1e293b] px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">
                     {lesson.category}
                   </span>
@@ -140,12 +140,12 @@ export default function ExploreLessons() {
                   {lesson.title}
                 </h3>
                 
-                <p className="text-sm text-slate-550 dark:text-slate-400 leading-relaxed line-clamp-2">
+                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
                   {lesson.description}
                 </p>
               </div>
 
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-450 dark:text-slate-500 font-semibold">
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 font-semibold">
                 <span>{lesson.scripture}</span>
                 <span className="text-[#dfb15b] font-bold flex items-center gap-0.5">
                   Start Study <ChevronRight size={13} strokeWidth={2.5} className="mt-0.5" />
@@ -156,7 +156,7 @@ export default function ExploreLessons() {
           </div>
         ))}
         {filteredLessons.length === 0 && (
-          <div className="col-span-full py-12 text-center text-slate-450 dark:text-slate-500">
+          <div className="col-span-full py-12 text-center text-slate-400 dark:text-slate-500">
             No studies found matching your criteria.
           </div>
         )}

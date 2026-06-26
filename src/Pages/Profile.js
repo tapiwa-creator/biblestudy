@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, BookOpen, BarChart3, Shield, RefreshCw } from 'lucide-react';
+import { Flame, BookOpen, BarChart3, Shield } from 'lucide-react';
 
 export default function Profile() {
   const stats = [
@@ -43,20 +43,14 @@ export default function Profile() {
     <div className="space-y-8 pb-8 transition-colors duration-300">
       
       {/* Identity / Profile Top Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div className="flex items-center space-x-4">
-          <div className="h-16 w-16 bg-[#dfb15b] text-[#070b12] rounded-full flex items-center justify-center font-serif text-2xl font-bold shadow">
-            L
-          </div>
-          <div>
-            <h1 className="font-serif text-3xl font-normal tracking-wide text-slate-800 dark:text-slate-100">Your Journey</h1>
-            <p className="text-sm font-semibold text-slate-450 dark:text-slate-400 mt-0.5">Friend in Faith</p>
-          </div>
+      <div className="flex items-center space-x-4">
+        <div className="h-16 w-16 bg-[#dfb15b] text-[#070b12] rounded-full flex items-center justify-center font-serif text-2xl font-bold shadow">
+          L
         </div>
-        <button className="flex items-center gap-2 bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 text-xs font-semibold px-4 py-2.5 rounded-xl transition text-slate-655 dark:text-slate-350 shadow-sm">
-          <RefreshCw size={14} className="opacity-70" />
-          <span>Reset progress</span>
-        </button>
+        <div>
+          <h1 className="font-serif text-3xl font-normal tracking-wide text-slate-800 dark:text-slate-100">Your Journey</h1>
+          <p className="text-sm font-semibold text-slate-400 dark:text-slate-400 mt-0.5">Friend in Faith</p>
+        </div>
       </div>
 
       {/* Grid Metrics Grid */}
@@ -81,7 +75,7 @@ export default function Profile() {
       <div className="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800/80 rounded-2xl p-6 space-y-6 shadow-sm">
         <div>
           <h2 className="font-serif text-xl font-normal text-slate-800 dark:text-slate-100 tracking-wide">Overall Progress</h2>
-          <div className="flex justify-between items-center text-xs font-semibold text-slate-450 dark:text-slate-500 mt-4">
+          <div className="flex justify-between items-center text-xs font-semibold text-slate-400 dark:text-slate-500 mt-4">
             <span>Curriculum completion</span>
             <span className="font-bold text-[#dfb15b]">0%</span>
           </div>
@@ -97,7 +91,7 @@ export default function Profile() {
               className="flex items-center justify-between border border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-[#070b12]/50 px-5 py-3.5 rounded-xl text-sm font-semibold"
             >
               <span className="text-slate-700 dark:text-slate-200">{item.title}</span>
-              <span className="text-slate-400 dark:text-slate-550 text-xs font-bold">{item.progress}</span>
+              <span className="text-slate-400 dark:text-slate-500 text-xs font-bold">{item.progress}</span>
             </div>
           ))}
         </div>
@@ -112,12 +106,12 @@ export default function Profile() {
               key={idx} 
               className="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800/80 p-5 rounded-2xl flex items-center space-x-4 opacity-60 select-none shadow-sm"
             >
-              <div className="h-11 w-11 rounded-full bg-slate-50 dark:bg-[#141c2e] border border-slate-200 dark:border-slate-800 flex items-center justify-center flex-shrink-0 text-slate-400 dark:text-slate-550 shadow-inner">
+              <div className="h-11 w-11 rounded-full bg-slate-50 dark:bg-[#141c2e] border border-slate-200 dark:border-slate-800 flex items-center justify-center flex-shrink-0 text-slate-400 dark:text-slate-500 shadow-inner">
                 <Shield size={18} />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-750 dark:text-slate-200 tracking-wide">{ach.name}</h3>
-                <p className="text-xs text-slate-450 dark:text-slate-500 mt-0.5 leading-relaxed">{ach.desc}</p>
+                <h3 className="text-sm font-bold text-slate-770 dark:text-slate-200 tracking-wide">{ach.name}</h3>
+                <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 leading-relaxed">{ach.desc}</p>
               </div>
             </div>
           ))}

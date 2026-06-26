@@ -74,19 +74,6 @@ export default function Layout({ children }) {
                 );
               })}
             </nav>
-
-            <div className="mt-auto p-4 bg-[#dfb15b]/5 rounded-2xl border border-[#dfb15b]/10 flex flex-col gap-2">
-              <div className="flex items-center gap-2 text-[#dfb15b] font-semibold text-sm">
-                <Award className="h-5 w-5" />
-                <span>Study Path Plus</span>
-              </div>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-normal">
-                Unlock self-paced study guides, certificates, and direct Q&A with guides.
-              </p>
-              <button className="mt-2 w-full py-2 bg-[#dfb15b] hover:bg-[#d4a247] text-slate-950 rounded-xl text-xs font-semibold shadow-md transition-colors">
-                Unlock All Lessons
-              </button>
-            </div>
           </aside>
 
           {/* Content View */}

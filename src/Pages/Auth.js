@@ -191,9 +191,9 @@ export default function AuthModal({ isOpen = true, onClose }) {
                 value={registerData.church}
                 onChange={(e) => setRegisterData({ ...registerData, church: e.target.value })}
               >
-                <option value="" disabled hidden>Select Affiliated Church</option>
+                <option value="" disabled hidden className="bg-[#0f1d3a] text-white">Select Affiliated Church</option>
                 {churchOptions.map((church) => (
-                  <option key={church} value={church} className="bg-[#0f1d3a]">{church}</option>
+                  <option key={church} value={church} className="bg-[#0f1d3a] text-white">{church}</option>
                 ))}
               </select>
             </div>

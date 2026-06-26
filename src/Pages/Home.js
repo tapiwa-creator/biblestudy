@@ -65,7 +65,7 @@ export default function Home() {
           <div className="flex items-center gap-2 text-[#dfb15b]">
             <Sparkles size={16} strokeWidth={2.5} className="animate-pulse" />
             <span className="text-[13px] font-semibold tracking-wide uppercase">
-              Welcome back to your study
+              Welcome to your study
             </span>
           </div>
 
@@ -127,13 +127,13 @@ export default function Home() {
           <Quote size={20} className="fill-current" />
         </div>
         <div className="space-y-2">
-          <span className="text-[10px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-widest block leading-none">
+          <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest block leading-none">
             Verse of the day
           </span>
-          <h3 className="font-serif text-lg sm:text-xl text-slate-750 dark:text-slate-100 font-normal leading-relaxed italic">
+          <h3 className="font-serif text-lg sm:text-xl text-slate-700 dark:text-slate-100 font-normal leading-relaxed italic">
             “Your word is a lamp to my feet and a light to my path.”
           </h3>
-          <span className="text-xs text-slate-505 dark:text-slate-450 block font-semibold">
+          <span className="text-xs text-slate-500 dark:text-slate-400 block font-semibold">
             Psalm 119:105
           </span>
         </div>
@@ -159,7 +159,7 @@ export default function Home() {
               key={ach.id} 
               className="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800/80 p-5 rounded-2xl flex flex-col items-center justify-center text-center space-y-3 shadow-sm transition-colors duration-300"
             >
-              <div className="h-10 w-10 rounded-full bg-slate-100 dark:bg-[#141c2e] border border-slate-200 dark:border-slate-850 flex items-center justify-center text-slate-400 dark:text-slate-550 shadow-inner">
+              <div className="h-10 w-10 rounded-full bg-slate-100 dark:bg-[#141c2e] border border-slate-200 dark:border-slate-850 flex items-center justify-center text-slate-400 dark:text-slate-500 shadow-inner">
                 <Lock size={16} />
               </div>
               <span className="text-[11px] font-bold text-slate-600 dark:text-slate-350 leading-tight">
@@ -189,7 +189,7 @@ export default function Home() {
             <Link 
               key={lesson.id} 
               to="/lessons"
-              className="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-slate-350 dark:hover:border-slate-700 transition shadow-sm"
+              className="bg-white dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden flex flex-col justify-between group hover:border-slate-300 dark:hover:border-slate-700 transition shadow-sm"
             >
               
               {/* Card Thumbnail Area */}
@@ -215,7 +215,7 @@ export default function Home() {
               {/* Card Meta Content Details Area */}
               <div className="p-5 flex flex-col justify-between flex-1 space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 dark:text-slate-550">
+                  <div className="flex items-center space-x-2 text-xs font-semibold text-slate-400 dark:text-slate-500">
                     <span className="bg-slate-100 dark:bg-[#1e293b] px-2 py-0.5 rounded text-slate-600 dark:text-slate-300">
                       {lesson.category}
                     </span>
@@ -229,14 +229,14 @@ export default function Home() {
                     {lesson.title}
                   </h3>
                   
-                  <p className="text-sm text-slate-550 dark:text-slate-400 leading-relaxed line-clamp-2">
+                  <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-2">
                     {lesson.description}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-450 dark:text-slate-500 font-semibold">
+                <div className="pt-2 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs text-slate-400 dark:text-slate-500 font-semibold">
                   <span>{lesson.scripture}</span>
-                  <span className="text-slate-400 dark:text-slate-550">{lesson.progress}</span>
+                  <span className="text-slate-400 dark:text-slate-500">{lesson.progress}</span>
                 </div>
               </div>
 
