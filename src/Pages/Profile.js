@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trophy, Award, Flame, BookOpen, Shield, RefreshCw } from 'lucide-react';
+import { Flame, BookOpen, BarChart3, Shield, RefreshCw } from 'lucide-react';
 
 export default function Profile() {
   const stats = [
@@ -16,16 +16,10 @@ export default function Profile() {
       icon: <BookOpen className="h-6 w-6 text-[#dfb15b]" />
     },
     {
-      id: 'xp',
-      value: '0',
-      label: 'Total XP',
-      icon: <Trophy className="h-6 w-6 text-[#dfb15b]" />
-    },
-    {
-      id: 'badges',
-      value: '0',
-      label: 'Badges',
-      icon: <Award className="h-6 w-6 text-[#dfb15b]" />
+      id: 'completion',
+      value: '0%',
+      label: 'Level of Completion',
+      icon: <BarChart3 className="h-6 w-6 text-[#dfb15b]" />
     }
   ];
 
@@ -66,7 +60,7 @@ export default function Profile() {
       </div>
 
       {/* Grid Metrics Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
         {stats.map((stat) => (
           <div 
             key={stat.id} 
