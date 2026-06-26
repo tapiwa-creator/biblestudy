@@ -1,13 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Flame, BookOpen, Trophy, Award, ArrowRight, Quote, Lock, Clock, Bookmark } from 'lucide-react';
+import { Sparkles, Flame, BookOpen, Trophy, ArrowRight, Quote, Lock, Clock, Bookmark } from 'lucide-react';
 
 export default function Home() {
   const stats = [
     { id: 'streak', value: '0', label: 'Day streak', icon: <Flame size={18} className="text-[#dfb15b]" /> },
     { id: 'lessons', value: '0', label: 'Lessons done', icon: <BookOpen size={18} className="text-[#dfb15b]" /> },
     { id: 'overall', value: '0%', label: 'Overall', icon: <Trophy size={18} className="text-[#dfb15b]" /> },
-    { id: 'xp', value: '0', label: 'XP earned', icon: <Award size={18} className="text-[#dfb15b]" /> },
   ];
 
   const achievementsList = [
@@ -96,8 +95,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Section - Progress Grid */}
-        <div className="bg-[#243355]/40 dark:bg-slate-950/20 border border-white/[0.04] rounded-2xl p-6 w-full lg:w-80 space-y-6">
+        {/* Right Section - Progress & Three Core Metrics */}
+        <div className="bg-[#243355]/40 dark:bg-slate-950/20 border border-white/[0.04] rounded-2xl p-6 w-full lg:w-96 space-y-6">
           <div className="space-y-2">
             <div className="flex justify-between items-center text-xs font-semibold text-slate-300">
               <span>Your journey</span>
@@ -108,12 +107,13 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          {/* Clean 3-Column Layout on larger displays, stacked on small mobile */}
+          <div className="grid grid-cols-3 gap-3">
             {stats.map((s) => (
-              <div key={s.id} className="bg-[#243355]/30 dark:bg-slate-950/30 border border-white/[0.02] p-4 rounded-xl flex flex-col justify-center space-y-1 shadow-sm">
+              <div key={s.id} className="bg-[#243355]/30 dark:bg-slate-950/30 border border-white/[0.02] p-3.5 rounded-xl flex flex-col items-center justify-center text-center space-y-1 shadow-sm">
                 {s.icon}
-                <span className="text-xl font-bold text-white leading-none pt-1">{s.value}</span>
-                <span className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">{s.label}</span>
+                <span className="text-lg font-bold text-white leading-none pt-1">{s.value}</span>
+                <span className="text-[10px] text-slate-400 font-semibold uppercase tracking-wider block truncate w-full">{s.label}</span>
               </div>
             ))}
           </div>

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   BookOpen, 
   Home, 
   User, 
-  Search, 
+  Sun,
+  Moon, 
   LogOut,
   Menu,
   X
@@ -14,14 +15,32 @@ export default function Header({ toggleMobileSidebar }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Check local storage or fallback to system configuration settings
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+
+  // Sync theme changes with the HTML element attributes & local storage
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
 
   const isLinkActive = (path) => location.pathname === path;
 
   const handleLogout = () => {
     setShowLogoutConfirm(false);
-    // Add any necessary authentication clear-out states here
     console.log("User logged out");
-    navigate('/'); // Redirect back to landing/auth view
+    navigate('/'); 
   };
 
   return (
@@ -59,7 +78,7 @@ export default function Header({ toggleMobileSidebar }) {
             to="/dashboard" 
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold transition-all ${
               isLinkActive('/dashboard')
-                ? 'bg-white dark:bg-slate-850 text-slate-900 dark:text-white shadow-sm'
+                ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm dark:shadow-slate-950/50'
                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
@@ -70,7 +89,7 @@ export default function Header({ toggleMobileSidebar }) {
             to="/lessons" 
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold transition-all ${
               isLinkActive('/lessons')
-                ? 'bg-white dark:bg-slate-850 text-slate-900 dark:text-white shadow-sm'
+                ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm dark:shadow-slate-950/50'
                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
@@ -81,7 +100,7 @@ export default function Header({ toggleMobileSidebar }) {
             to="/profile" 
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-semibold transition-all ${
               isLinkActive('/profile')
-                ? 'bg-white dark:bg-slate-850 text-slate-900 dark:text-white shadow-sm'
+                ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white shadow-sm dark:shadow-slate-950/50'
                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
             }`}
           >
@@ -92,8 +111,19 @@ export default function Header({ toggleMobileSidebar }) {
 
         {/* Utility Actions */}
         <div className="flex items-center gap-4 text-slate-500 dark:text-slate-400">
-          <button className="hover:text-slate-850 dark:hover:text-slate-200 transition-colors p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-            <Search size={18} strokeWidth={2} />
+          
+          {/* Light/Dark Mode Theme Toggle Button */}
+          <button 
+            onClick={() => setIsDarkMode(!isDarkMode)}
+            className="hover:text-slate-850 dark:hover:text-slate-200 transition-colors p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
+            aria-label="Toggle interface color theme"
+            title={isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
+          >
+            {isDarkMode ? (
+              <Sun size={18} strokeWidth={2} className="transition-transform duration-300 rotate-0 scale-100" />
+            ) : (
+              <Moon size={18} strokeWidth={2} className="transition-transform duration-300 rotate-0 scale-100" />
+            )}
           </button>
           
           {/* Logout Action Trigger Button */}
