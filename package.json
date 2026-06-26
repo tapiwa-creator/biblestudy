@@ -19,8 +19,8 @@
     "build": "npm run tailwind:build && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "tailwind:watch": "tailwindcss -i ./src/index.css -o ./src/tailwind.output.css --watch",
-    "tailwind:build": "tailwindcss -i ./src/index.css -o ./src/tailwind.output.css"
+    "tailwind:watch": "tailwindcss -i ./src/index.css -o ./src/tailwind.output.css --optimize --watch",
+    "tailwind:build": "tailwindcss -i ./src/index.css -o ./src/tailwind.output.css --minify"
   },
   "eslintConfig": {
     "extends": [

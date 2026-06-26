@@ -17,17 +17,19 @@ export default function AuthModal({ isOpen = true, onClose }) {
     confirmPassword: '',
   });
 
-  // Validation States
+  // Notification States
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   if (!isOpen) return null;
 
   // Dropdown options sorted alphabetically
-  const churchOptions = ["Self-Study", "Bindura Main", "Chiwaridzo Main", "Shashi Church", "Sunnyside",];
+  const churchOptions = ["Self-Study", "Bindura Main", "Chiwaridzo Main", "Shashi Church", "Sunnyside"];
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     setError('');
+    setSuccessMessage('');
     // Handle login verification logic here
     console.log('Logging in with:', loginData);
     navigate('/dashboard');
@@ -36,6 +38,7 @@ export default function AuthModal({ isOpen = true, onClose }) {
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     setError('');
+    setSuccessMessage('');
 
     if (registerData.password !== registerData.confirmPassword) {
       setError('Passwords do not match.');
@@ -49,7 +52,16 @@ export default function AuthModal({ isOpen = true, onClose }) {
 
     // Handle registration endpoint dispatch logic here
     console.log('Registering user:', registerData);
-    navigate('/welcome');
+    
+    // 1. Set the success message to prompt login
+    setSuccessMessage('Registration successful! Please log in to your new account.');
+    
+    // 2. Clear out registration details and pre-fill login username for user convenience
+    setLoginData((prev) => ({ ...prev, username: registerData.username }));
+    setRegisterData({ username: '', church: '', password: '', confirmPassword: '' });
+    
+    // 3. Switch back to the Login view
+    setIsLogin(true);
   };
 
   return (
@@ -82,6 +94,13 @@ export default function AuthModal({ isOpen = true, onClose }) {
         {error && (
           <div className="mb-3 rounded-lg bg-red-500/20 border border-red-500/40 p-2 text-center text-sm text-red-400 font-sans">
             {error}
+          </div>
+        )}
+
+        {/* Global Success Banner */}
+        {successMessage && (
+          <div className="mb-3 rounded-lg bg-emerald-500/20 border border-emerald-500/40 p-2 text-center text-sm text-emerald-400 font-sans font-medium">
+            {successMessage}
           </div>
         )}
 
@@ -136,7 +155,7 @@ export default function AuthModal({ isOpen = true, onClose }) {
               Don't have an account?{' '}
               <button
                 type="button"
-                onClick={() => { setIsLogin(false); setError(''); }}
+                onClick={() => { setIsLogin(false); setError(''); setSuccessMessage(''); }}
                 className="font-semibold text-[#e0aa53] hover:underline"
               >
                 Register here
@@ -236,7 +255,7 @@ export default function AuthModal({ isOpen = true, onClose }) {
               Already have an account?{' '}
               <button
                 type="button"
-                onClick={() => { setIsLogin(true); setError(''); }}
+                onClick={() => { setIsLogin(true); setError(''); setSuccessMessage(''); }}
                 className="font-semibold text-[#e0aa53] hover:underline"
               >
                 Log in here
