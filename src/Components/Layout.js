@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-import { Home, BookOpen, User, X, ChevronRight, Award } from 'lucide-react';
+import { Home, BookOpen, User, X, ChevronRight } from 'lucide-react';
 
 export default function Layout({ children }) {
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
