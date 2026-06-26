@@ -3,24 +3,16 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  // Default to dark theme as requested
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true;
-  });
+  // Always use light theme as requested in the image (smoked white background)
+  const [isDark] = useState(false);
 
   useEffect(() => {
     const root = window.document.documentElement;
-    if (isDark) {
-      root.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      root.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDark]);
+    root.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }, []);
 
-  const toggleTheme = () => setIsDark(prev => !prev);
+  const toggleTheme = () => {};
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
